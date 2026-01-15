@@ -1,7 +1,9 @@
 name: AnyRouter 自动签到
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    # 每 6 小时执行一次 (北京时间: 02:30, 08:30, 14:30, 20:30)
+    # 建议不要设置在整点（如 00:00），因为整点任务多，容易被 GitHub 延迟或跳过
+    - cron: "30 2,8,14,20 * * *"
   workflow_dispatch:
 
 jobs:
